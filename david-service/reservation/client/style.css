@@ -588,7 +588,7 @@ img {
   background-color: rgb(255, 255, 255);
   display: table;
   width: 100%;
-  border: 2px solid rgb(235, 235, 235);
+  border: 1.2px solid rgb(235, 235, 235);
   border-radius: 2px;
 }
 
