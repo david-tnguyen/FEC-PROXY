@@ -10,14 +10,12 @@ var path = require('path');
 
 var fs = require('fs');
 
-var db = require('./db');
-
-var database = require('./db/checkout.js');
-
 var app = express();
 var port = 3002;
 
-var cors = require('cors'); // Allow CORS
+var cors = require('cors');
+
+var router = require('./routes.js'); // Allow CORS
 
 
 app.use(cors()); // Log all 4xx and 5xx responses
@@ -35,19 +33,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json()); // Serve public folder
 
-app.use(express["static"](path.join(__dirname, '../public'))); // Checkout dates
+app.use(express["static"](path.join(__dirname, '../public'))); // Routes
 
-app.get('/checkout', function (req, res) {
-  database.getRecords(function (results) {
-    res.send(results);
-  });
-}); // Checkout user
-
-app.post('/', function (req, res) {
-  database.insertRecord(req.body, function () {
-    res.end();
-  });
-}); // Listen for requests
+app.use('/', router); // Listen for requests
 
 app.listen(port, function () {
   console.log("server running at: http://localhost:".concat(port));

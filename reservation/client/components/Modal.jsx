@@ -4,7 +4,6 @@ import Ratings from './Ratings.jsx';
 import GuestModal from './GuestModal.jsx';
 import Button from './AirbnbButton.jsx';
 import Calendar from './Calendar.jsx';
-import FacebookLogin from './FacebookLogin.jsx'
 import classNames from 'classnames';
 
 class Modal extends React.Component {
@@ -75,8 +74,8 @@ class Modal extends React.Component {
     } else if (!this.state.endDate) {
       document.getElementById('endDate').focus();
     } else {
-      // fetch('http://localhost:3002/', {
-      fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/', {
+      fetch('http://localhost:3002/checkout', {
+      // fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/', {
         method: 'POST',
         body: JSON.stringify({
           checkin: this.state.startDate,

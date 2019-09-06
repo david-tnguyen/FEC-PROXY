@@ -3,10 +3,10 @@ const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const path = require('path');
 const fs = require('fs');
-const controller = require('./controllers');
 const app = express();
 const port = 3002;
 const cors = require('cors');
+const router = require('./routes.js');
 
 // Allow CORS
 app.use(cors());
@@ -26,19 +26,8 @@ app.use(bodyParser.json());
 // Serve public folder
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Checkout dates
-app.get('/checkout', (req, res) => {
-  controller.getRecords((results) => {
-    res.send(results);
-  });
-});
-
-// Checkout user
-app.post('/', (req, res) => {
-  controller.insertRecord(req.body, () => {
-    res.end();
-  });
-});
+// Routes
+app.use('/', router);
 
 // Listen for requests
 app.listen(port, () => {
