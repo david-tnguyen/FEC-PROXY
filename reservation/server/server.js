@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const path = require('path');
 const fs = require('fs');
-const database = require('./db/checkout.js');
+const controller = require('./controllers');
 const app = express();
 const port = 3002;
 const cors = require('cors');
@@ -28,14 +28,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Checkout dates
 app.get('/checkout', (req, res) => {
-  database.getRecords((results) => {
+  controller.getRecords((results) => {
     res.send(results);
   });
 });
 
 // Checkout user
 app.post('/', (req, res) => {
-  database.insertRecord(req.body, () => {
+  controller.insertRecord(req.body, () => {
     res.end();
   });
 });
