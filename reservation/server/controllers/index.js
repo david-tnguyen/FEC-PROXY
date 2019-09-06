@@ -15,17 +15,3 @@ module.exports = {
     }
   }
 };
-
-// Checkout dates
-// app.get('/checkout', (req, res) => {
-//   controller.getRecords((results) => {
-//     res.send(results);
-//   });
-// });
-
-// // Checkout user
-// app.post('/', (req, res) => {
-//   controller.insertRecord(req.body, () => {
-//     res.end();
-//   });
-// });
