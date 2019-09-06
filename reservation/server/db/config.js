@@ -9,8 +9,9 @@ module.exports = (db) => {
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       checkin VARCHAR(255),
       checkout VARCHAR(255)
-    );`)
-    .error(err => {
-      console.log(err);
-    });
+    );`
+  )
+  .error(err => {
+    console.log(err);
+  });
 };
