@@ -1,4 +1,4 @@
-# Project Name
+# Airbnb Checkout Clone
 
 > Airbnb clone of the checkout page
 
