@@ -3,10 +3,9 @@ import React from 'react';
 class AirbnbButton extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     e.preventDefault();
     this.props.handleClick();
   }

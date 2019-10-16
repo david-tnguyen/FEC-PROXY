@@ -15,12 +15,6 @@ class Calendar extends React.Component {
       checkoutDate: this.props.endDate,
       blockedDates: []
     };
-
-    this.onDaySelect = this.onDaySelect.bind(this);
-    this.handlePrev = this.handlePrev.bind(this);
-    this.handleNext = this.handleNext.bind(this);
-    this.onDateRangeSelect = this.onDateRangeSelect.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -40,20 +34,20 @@ class Calendar extends React.Component {
     document.removeEventListener('mousedown', this.handleClick, false);
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     if (this.node.contains(e.target)) {
       return;
     }
     this.props.onBlur();
   }
 
-  onDateRangeSelect(day, date) {
+  onDateRangeSelect = (day, date) => {
     this.setState({
       endDate: date
     });
   }
 
-  onDaySelect(day, isBlocked, isOutsideRange) {
+  onDaySelect = (day, isBlocked, isOutsideRange) => {
     const dateSelected = moment([this.state.now.year(), this.state.now.month(), day])
 
     if (!isBlocked && this.props.type === 'check-in') {
@@ -93,14 +87,14 @@ class Calendar extends React.Component {
     return this.state.now.format('YYYY');
   }
 
-  handleNext(e) {
+  handleNext = (e) => {
     e.preventDefault();
     this.setState({
       now: this.state.now.add(1, 'month')
     });
   }
 
-  handlePrev(e) {
+  handlePrev = (e) => {
     e.preventDefault();
     this.setState({
       now: this.state.now.subtract(1, 'month')

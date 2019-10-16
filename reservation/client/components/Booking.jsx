@@ -4,10 +4,9 @@ import Button from './AirbnbButton.jsx';
 class Booking extends React.Component {
   constructor(props) {
     super(props);
-    this.handleBooking = this.handleBooking.bind(this);
   }
 
-  handleBooking(e) {
+  handleBooking = (e) => {
     this.props.handleBooking();
   }
 

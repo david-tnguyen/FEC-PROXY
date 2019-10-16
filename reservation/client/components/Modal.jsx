@@ -16,59 +16,51 @@ class Modal extends React.Component {
       endDate: '',
       inputActive: ''
     };
-    this.handleClose = this.handleClose.bind(this);
-    this.handleGuest = this.handleGuest.bind(this);
-    this.handleBooking = this.handleBooking.bind(this);
-    this.onStartDateInputSelect = this.onStartDateInputSelect.bind(this);
-    this.onEndDateInputSelect = this.onEndDateInputSelect.bind(this);
-    this.onCheckInDaySelect = this.onCheckInDaySelect.bind(this);
-    this.onCheckOutDaySelect = this.onCheckOutDaySelect.bind(this);
-    this.onCalendarBlur = this.onCalendarBlur.bind(this);
-    this.onGuestModalBlur = this.onGuestModalBlur.bind(this);
+
   }
 
-  onGuestModalBlur() {
+  onGuestModalBlur = () => {
     this.setState({
       showGuestModal: false
     });
   }
 
-  onCheckInDaySelect(startDateSelected) {
+  onCheckInDaySelect = (startDateSelected) => {
     this.setState({
       startDate: startDateSelected,
       inputActive: 'check-out'
     });
   }
 
-  onCheckOutDaySelect(endDateSelected) {
+  onCheckOutDaySelect = (endDateSelected) => {
     this.setState({
       showCalendarModal: false,
       endDate: endDateSelected
     });
   }
 
-  onStartDateInputSelect() {
+  onStartDateInputSelect = () => {
     this.setState({
       showCalendarModal: true,
       inputActive: 'check-in'
     }, () => setTimeout(() => document.getElementById("calendar-modal").focus(), 0));
   }
 
-  onEndDateInputSelect() {
+  onEndDateInputSelect = () => {
     this.setState({
       showCalendarModal: true,
       inputActive: 'check-out'
     });
   }
 
-  onCalendarBlur() {
+  onCalendarBlur = () => {
     this.setState({
       inputActive: '',
       showCalendarModal: false
     });
   }
 
-  handleBooking() {
+  handleBooking = () => {
     if (!this.state.startDate) {
       document.getElementById('startDate').focus();
     } else if (!this.state.endDate) {
@@ -91,14 +83,14 @@ class Modal extends React.Component {
     }
   }
 
-  handleGuest(e) {
+  handleGuest = (e) => {
     e.preventDefault();
     this.setState({
       showGuestModal: true
     });
   }
 
-  handleClose(e) {
+  handleClose = (e) => {
     this.props.handleClose();
   }
 

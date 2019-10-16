@@ -11,17 +11,15 @@ class Reservation extends React.Component {
     this.state = {
       showModal: false
     };
-    this.handleBooking = this.handleBooking.bind(this);
-    this.handleClose = this.handleClose.bind(this);
   }
 
-  handleBooking() {
+  handleBooking = () => {
     this.setState({
       showModal: true
     });
   }
 
-  handleClose() {
+  handleClose = () => {
     this.setState({
       showModal: false
     });
