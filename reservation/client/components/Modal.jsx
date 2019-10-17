@@ -1,6 +1,6 @@
 import React from 'react';
 import Price from './Price.jsx';
-import Ratings from './Ratings.jsx';
+import Ratings from './description/Ratings.jsx';
 import GuestModal from './GuestModal.jsx';
 import Button from './AirbnbButton.jsx';
 import Calendar from './Calendar.jsx';

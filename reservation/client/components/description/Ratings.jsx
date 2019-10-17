@@ -8,6 +8,10 @@ class Ratings extends React.Component {
     };
   }
 
+  getNumberOfReviews() {
+    //ajax call to get ra
+  }
+
   render() {
     return (
       <button id="reviews-checkout">

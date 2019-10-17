@@ -16,28 +16,6 @@ img {
   float: right;
 }
 
-/* PROPERTY NAME*/
-#property {
-  display: table-cell;
-  vertical-align: middle;
-  width: 100%;
-}
-
-#property-spacing {
-  margin-bottom: -4px;
-}
-
-#property-name {
-  text-transform: uppercase;
-  word-wrap: break-word;
-  font-size: 11px;
-  font-weight: 700;
-  /* line-height: 1.3333333333333333em; */
-  line-height: 20px;
-  letter-spacing: 0.08333333333333333em;
-  color: #767676;
-}
-
 /* PROPERTY RATING */
 #reviews-checkout {
   padding: 0px;
