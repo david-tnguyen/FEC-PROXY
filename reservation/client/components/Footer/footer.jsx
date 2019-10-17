@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import styles from './footer.scss';
 
 import Modal from '../Modal.jsx';
-import Icon from '../Icon.jsx';
+import Logo from '../Logo/Logo.jsx';
 import Property from '../Property.jsx';
 import Price from '../Price.jsx';
 import Booking from '../Booking.jsx';
@@ -26,7 +26,7 @@ class Reservation extends React.Component {
       <React.Fragment>
         {this.state.showModal && <Modal showModal={this.showModal}/>}
         <footer className={styles.wrapper}>
-            <Icon />
+            <Logo />
             <Property />
             <Price />
             <Booking showModal={this.showModal}/>
