@@ -1,39 +1,34 @@
-# Project Name
+# Airbnb Checkout Clone
 
-> Project description
+> Airbnb clone of the checkout page
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/david-tnguyen/FEC-PROXY/tree/master/allen-service
+  - https://github.com/david-tnguyen/FEC-PROXY/tree/master/sonny-service
 
 ## Table of Contents
 
-1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+- MySQL@5.7
 
 ## Development
 
 ### Installing Dependencies
 
-From within the root directory:
+From within the reservation directory:
 
 ```sh
 npm install -g webpack
 npm install
+brew services start mysql@5.7
+npm start
 ```
 
