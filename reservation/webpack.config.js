@@ -18,8 +18,25 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.(css)$/,
+        use: ['style-loader', 'css-loader'],
+
+      },
+      {
+        test: /\.(scss)$/,
+        use: [
+          // style-loader
+          { loader: 'style-loader' },
+          // css-loader
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
+          // sass-loader
+          { loader: 'sass-loader' }
+        ],
       },
       {
         test: /\.(gif|png)$/,
