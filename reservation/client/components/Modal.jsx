@@ -78,7 +78,7 @@ class Modal extends React.Component {
         }
       })
       .then(() => {
-        this.props.handleClose();
+        this.props.showModal(false);
       });
     }
   }
@@ -91,7 +91,7 @@ class Modal extends React.Component {
   }
 
   handleClose = (e) => {
-    this.props.handleClose();
+    this.props.showModal(false);
   }
 
   render() {

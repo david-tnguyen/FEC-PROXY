@@ -7,7 +7,7 @@ class Booking extends React.Component {
   }
 
   handleBooking = (e) => {
-    this.props.handleBooking();
+    this.props.showModal(true);
   }
 
   render() {

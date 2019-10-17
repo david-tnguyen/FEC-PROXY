@@ -13,29 +13,23 @@ class Reservation extends React.Component {
     };
   }
 
-  handleBooking = () => {
+  showModal = (bool) => {
     this.setState({
-      showModal: true
-    });
-  }
-
-  handleClose = () => {
-    this.setState({
-      showModal: false
+      showModal: bool
     });
   }
 
   render() {
     return (
       <React.Fragment>
-        {this.state.showModal && <Modal handleClose={this.handleClose}/>}
+        {this.state.showModal && <Modal showModal={this.showModal}/>}
         <footer id="footer">
           <div id="container">
             <div id="footer-content">
               <Icon />
               <Property />
               <Price />
-              <Booking handleBooking={this.handleBooking}/>
+              <Booking showModal={this.showModal}/>
             </div>
           </div>
         </footer>
