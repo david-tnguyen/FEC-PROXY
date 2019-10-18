@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ratings.scss';
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -14,21 +15,12 @@ class Ratings extends React.Component {
 
   render() {
     return (
-      <button id="reviews-checkout">
-        <div>
-          <span id="star-ratings-spacing">
-            <span role="img" id="star-ratings">
-              <span id="property-star-ratings"></span>
-            </span>
-          </span>
-          <span id="reviews-spacing">
-            <span id="reviews-count">{this.state.reviews}</span>
-          </span>
-        </div>
+      <button className={styles.wrapper}>
+        <span className={styles.stars}></span>
+        <span className={styles.numberOfReviews}>{this.state.reviews}</span>
       </button>
     );
   }
 }
-
 
 export default Ratings

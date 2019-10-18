@@ -1,5 +1,6 @@
 $colors: (
-  primary: rgb(145, 70, 105)
+  primary: rgb(145, 70, 105),
+  light-grey: rgb(72, 72, 72)
 );
 
 @function color($color) {
