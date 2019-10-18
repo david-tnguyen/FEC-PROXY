@@ -1,9 +1,10 @@
 import React from 'react';
-import Price from './ListingPrice';
-import Ratings from './Ratings';
-import GuestModal from './GuestModal.jsx';
-import Button from './PrimaryButton';
-import Calendar from './Calendar.jsx';
+import Price from '../ListingPrice';
+import Ratings from '../Ratings';
+import GuestModal from '../GuestModal.jsx';
+import Button from '../PrimaryButton';
+import Calendar from '../Calendar.jsx';
+import CloseButton from './CloseButton';
 import classNames from 'classnames';
 
 class Modal extends React.Component {
@@ -101,15 +102,7 @@ class Modal extends React.Component {
           <div id="modal-cell">
             <div id="modal-content">
               <section id="modal-spacing">
-                <div id="modal-button">
-                  <button
-                    type="button"
-                    id="button-close"
-                    onClick={this.handleClose}
-                  >
-                    <svg id="modal-close" focusable="false"></svg>
-                  </button>
-                </div>
+                <CloseButton handleClose={this.handleClose}/>
                 <section>
                   <div>
                     <section>

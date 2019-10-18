@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styles from './footer.scss';
 
-import Modal from '../Modal.jsx';
+import BookingModal from '../BookingModal';
 import Logo from '../Logo';
 import Description from '../Description';
 import ListingPrice from '../ListingPrice';
@@ -24,7 +24,7 @@ class Reservation extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.showModal && <Modal showModal={this.showModal}/>}
+        {this.state.showModal && <BookingModal showModal={this.showModal}/>}
         <footer className={styles.wrapper}>
             <Logo />
             <Description />
