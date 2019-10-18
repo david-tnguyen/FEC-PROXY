@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './listingPrice.scss';
 
 class Price extends React.Component {
   constructor(props) {
@@ -14,13 +15,9 @@ class Price extends React.Component {
 
   render() {
     return (
-      <div id="price">
-        <div id="price-spacing">
-          <div id="price-info">
-            <span className="price">${this.state.price} </span>
-            <span className="duration">/ night</span>
-          </div>
-        </div>
+      <div className={styles.wrapper}>
+        <span className={styles.price}>${this.state.price} </span>
+        <span className={styles.duration}>/ night</span>
       </div>
     );
   }

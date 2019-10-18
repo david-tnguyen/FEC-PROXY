@@ -1,5 +1,5 @@
 import React from 'react';
-import Price from './Price.jsx';
+import Price from './ListingPrice';
 import Ratings from './Ratings';
 import GuestModal from './GuestModal.jsx';
 import Button from './AirbnbButton.jsx';

@@ -4,7 +4,7 @@ import styles from './footer.scss';
 import Modal from '../Modal.jsx';
 import Logo from '../Logo';
 import Description from '../Description';
-import Price from '../Price.jsx';
+import ListingPrice from '../ListingPrice';
 import Booking from '../Booking.jsx';
 
 class Reservation extends React.Component {
@@ -28,7 +28,7 @@ class Reservation extends React.Component {
         <footer className={styles.wrapper}>
             <Logo />
             <Description />
-            <Price />
+            <ListingPrice />
             <Booking showModal={this.showModal}/>
         </footer>
       </React.Fragment>

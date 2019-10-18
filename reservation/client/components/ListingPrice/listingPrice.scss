@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+$lineHeight: 1.375em;
+
+.wrapper {
+  white-space: nowrap;
+  line-height: 10px;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: $lineHeight;
+  color: color(light-grey);
+}
+
+.duration {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: $lineHeight;
+  color: color(light-grey);
+}
