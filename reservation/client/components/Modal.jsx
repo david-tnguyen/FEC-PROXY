@@ -2,7 +2,7 @@ import React from 'react';
 import Price from './ListingPrice';
 import Ratings from './Ratings';
 import GuestModal from './GuestModal.jsx';
-import Button from './AirbnbButton.jsx';
+import Button from './PrimaryButton';
 import Calendar from './Calendar.jsx';
 import classNames from 'classnames';
 

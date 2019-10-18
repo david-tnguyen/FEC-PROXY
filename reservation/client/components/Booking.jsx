@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './AirbnbButton.jsx';
+import Button from './PrimaryButton';
 
 class Booking extends React.Component {
   constructor(props) {
