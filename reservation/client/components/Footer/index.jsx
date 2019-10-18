@@ -5,7 +5,7 @@ import Modal from '../Modal.jsx';
 import Logo from '../Logo';
 import Description from '../Description';
 import ListingPrice from '../ListingPrice';
-import Booking from '../Booking.jsx';
+import Booking from '../Booking';
 
 class Reservation extends React.Component {
   constructor(props) {

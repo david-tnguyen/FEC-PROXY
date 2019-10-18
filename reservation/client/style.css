@@ -4,30 +4,6 @@
   box-sizing: border-box;
 }
 
-/* PICTURE PLACEHOLDER */
-#image-container {
-  height: 700px;
-}
-
-img {
-  display: block;
-  width: auto;
-  height: 100%;
-  float: right;
-}
-
-/* BOOKING */
-#book-container {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-#book-spacing {
-  margin-left: 24px;
-  width: 174px;
-  height: 48px;
-}
-
 /* MODAL-CLOSE BUTTON */
 #modal-backdrop {
   position: fixed;
