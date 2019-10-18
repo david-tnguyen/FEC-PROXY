@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './description.scss';
+import styles from './caption.scss';
 
 class Caption extends React.Component {
   constructor(props) {

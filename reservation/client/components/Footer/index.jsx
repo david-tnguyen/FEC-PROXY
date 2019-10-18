@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import styles from './footer.scss';
 
 import Modal from '../Modal.jsx';
-import Logo from '../logo/Logo.jsx';
-import Description from '../description/';
+import Logo from '../Logo';
+import Description from '../Description';
 import Price from '../Price.jsx';
 import Booking from '../Booking.jsx';
 
