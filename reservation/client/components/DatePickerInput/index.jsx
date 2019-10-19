@@ -15,10 +15,9 @@ class DatePickerInput extends React.Component {
         placeholder="Check-in"
         id="checkin-label"
         autoComplete="off"
-        value={this.state.startDate && this.state.startDate.format('L')}
-        onChange={(e) => console.log(e)}
-        className={this.state.inputActive === 'check-in' ? 'checkin-label-select' : ''}
-        onClick={this.onStartDateInputSelect}
+        value={this.props.startDate}
+        className={this.props.inputActive === 'check-in' ? 'checkin-label-select' : ''}
+        onClick={this.props.handleInputSelect}
       />
     );
   }

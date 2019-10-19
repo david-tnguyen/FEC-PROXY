@@ -5,6 +5,7 @@ import GuestModal from '../GuestModal.jsx';
 import Button from '../PrimaryButton';
 import Calendar from '../Calendar.jsx';
 import CloseButton from './CloseButton';
+import DatePickerInput from '../DatePickerInput';
 import classNames from 'classnames';
 
 class Modal extends React.Component {
@@ -106,15 +107,10 @@ class Modal extends React.Component {
           <div id="modal-book-spacing">
             <label id="book-dates">Dates</label>
             <div id="checkout-container">
-              <input
-                type="text"
-                placeholder="Check-in"
-                id="checkin-label"
-                autoComplete="off"
-                value={this.state.startDate && this.state.startDate.format('L')}
-                onChange={(e) => console.log(e)}
-                className={this.state.inputActive === 'check-in' ? 'checkin-label-select' : ''}
-                onClick={this.onStartDateInputSelect}
+              <DatePickerInput
+                startDate={this.state.startDate && this.state.startDate.format('L')}
+                inputActive={this.state.inputActive}
+                handleInputSelect={this.onStartDateInputSelect}
               />
 
               <div
