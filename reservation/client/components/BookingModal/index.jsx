@@ -98,103 +98,95 @@ class Modal extends React.Component {
   render() {
     return (
       <div id="modal-backdrop">
-        <div id="modal-container">
-          <div id="modal-cell">
-            <div id="modal-content">
-              <section id="modal-spacing">
-                <CloseButton handleClose={this.handleClose}/>
-                <section>
-                  <div>
-                    <section>
-                      <Price />
-                      <Ratings />
-                      <div style={{marginTop: "19px", marginBottom: "19px"}}>
-                        <div id="modal-divider"></div>
-                      </div>
-                    </section>
-                    <form>
-                      <div id="book-fields-placeholder">
-                        <div id="modal-book-spacing">
-                          <label id="book-dates">Dates</label>
-                          <div id="checkout-container">
-                            <div id="checkout-row">
-                              <div id="checkin-input">
-                                <input
-                                  type="text"
-                                  placeholder="Check-in"
-                                  id="checkin-label"
-                                  autoComplete="off"
-                                  value={this.state.startDate && this.state.startDate.format('L')}
-                                  onChange={(e) => console.log(e)}
-                                  className={
-                                    classNames({
-                                      'checkin-label-select': this.state.inputActive === 'check-in'
-                                    })
-                                  }
-                                  onClick={this.onStartDateInputSelect}
-                                />
-                              </div>
-                              <div
-                                className="next-step-checkout"
-                              >
-                                <svg id="next-step-checkout-arrow"></svg>
-                              </div>
-                              <div id="checkin-input">
-                                <input
-                                  type="text"
-                                  placeholder="Checkout"
-                                  autoComplete="off"
-                                  id="checkin-label"
-                                  value={this.state.endDate && this.state.endDate.format('L')}
-                                  onChange={(e) => console.log(e)}
-                                  className={
-                                    classNames({
-                                      'checkin-label-select': this.state.inputActive === 'check-out'
-                                    })
-                                  }
-                                  onClick={this.onEndDateInputSelect}
-                                />
-                                {this.state.showCalendarModal && <Calendar type={this.state.inputActive} endDate={this.state.endDate} onDaySelect={this.state.inputActive === 'check-in' ? this.onCheckInDaySelect : this.onCheckOutDaySelect} startDate={this.state.startDate} onBlur={this.onCalendarBlur}/>}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="guest-spacing">
-                          <label id="guests">Guests</label>
-                          <div>
-                            <button
-                              id="guests-placeholder"
-                              onClick={this.handleGuest}
-                              onBlur={this.onGuestModalBlur}
-                            >
-                              <div id="guest1">
-                                <div id="guest2">
-                                  <div id="guestcell">
-                                    <div className="guest-label">1 guest</div>
-                                  </div>
-                                  <div id="down-arrow"></div>
-                                </div>
-                              </div>
-                            </button>
-                            <div id="modal2">
-                              {this.state.showGuestModal && <GuestModal />}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="book-top-spacing"></div>
-                      <Button
-                        name='Book'
-                        handleClick={this.handleBooking}
-                      />
-                      <div id="charge">You won't be charged yet</div>
-                    </form>
-                  </div>
-                </section>
+          <CloseButton handleClose={this.handleClose}/>
+          <section>
+            <div>
+              <section>
+                <Price />
+                <Ratings />
+                <div style={{marginTop: "19px", marginBottom: "19px"}}>
+                  <div id="modal-divider"></div>
+                </div>
               </section>
+              <form>
+                <div id="book-fields-placeholder">
+                  <div id="modal-book-spacing">
+                    <label id="book-dates">Dates</label>
+                    <div id="checkout-container">
+                      <div id="checkout-row">
+                        <div id="checkin-input">
+                          <input
+                            type="text"
+                            placeholder="Check-in"
+                            id="checkin-label"
+                            autoComplete="off"
+                            value={this.state.startDate && this.state.startDate.format('L')}
+                            onChange={(e) => console.log(e)}
+                            className={
+                              classNames({
+                                'checkin-label-select': this.state.inputActive === 'check-in'
+                              })
+                            }
+                            onClick={this.onStartDateInputSelect}
+                          />
+                        </div>
+                        <div
+                          className="next-step-checkout"
+                        >
+                          <svg id="next-step-checkout-arrow"></svg>
+                        </div>
+                        <div id="checkin-input">
+                          <input
+                            type="text"
+                            placeholder="Checkout"
+                            autoComplete="off"
+                            id="checkin-label"
+                            value={this.state.endDate && this.state.endDate.format('L')}
+                            onChange={(e) => console.log(e)}
+                            className={
+                              classNames({
+                                'checkin-label-select': this.state.inputActive === 'check-out'
+                              })
+                            }
+                            onClick={this.onEndDateInputSelect}
+                          />
+                          {this.state.showCalendarModal && <Calendar type={this.state.inputActive} endDate={this.state.endDate} onDaySelect={this.state.inputActive === 'check-in' ? this.onCheckInDaySelect : this.onCheckOutDaySelect} startDate={this.state.startDate} onBlur={this.onCalendarBlur}/>}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="guest-spacing">
+                    <label id="guests">Guests</label>
+                    <div>
+                      <button
+                        id="guests-placeholder"
+                        onClick={this.handleGuest}
+                        onBlur={this.onGuestModalBlur}
+                      >
+                        <div id="guest1">
+                          <div id="guest2">
+                            <div id="guestcell">
+                              <div className="guest-label">1 guest</div>
+                            </div>
+                            <div id="down-arrow"></div>
+                          </div>
+                        </div>
+                      </button>
+                      <div id="modal2">
+                        {this.state.showGuestModal && <GuestModal />}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="book-top-spacing"></div>
+                <Button
+                  name='Book'
+                  handleClick={this.handleBooking}
+                />
+                <div id="charge">You won't be charged yet</div>
+              </form>
             </div>
-          </div>
-        </div>
+          </section>
       </div>
     );
   }
