@@ -1,23 +1,14 @@
 import React from 'react';
 import Price from '../ListingPrice';
 import Ratings from '../Ratings';
-import GuestModal from '../GuestModal.jsx';
 import Button from '../PrimaryButton';
 import CloseButton from './CloseButton';
 import DatePickerRange from './DatePickerRange';
+import GuestButton from './GuestButton';
 
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showGuestModal: false,
-    };
-  }
-
-  onGuestModalBlur = () => {
-    this.setState({
-      showGuestModal: false
-    });
   }
 
   handleBooking = () => {
@@ -43,13 +34,6 @@ class Modal extends React.Component {
     }
   }
 
-  handleGuest = (e) => {
-    e.preventDefault();
-    this.setState({
-      showGuestModal: true
-    });
-  }
-
   handleClose = (e) => {
     this.props.showModal(false);
   }
@@ -64,29 +48,7 @@ class Modal extends React.Component {
         <form>
           <label id="book-dates">Dates</label>
           <DatePickerRange />
-          <div id="guest-spacing">
-            <label id="guests">Guests</label>
-            <div>
-              <button
-                id="guests-placeholder"
-                onClick={this.handleGuest}
-                onBlur={this.onGuestModalBlur}
-              >
-                <div id="guest1">
-                  <div id="guest2">
-                    <div id="guestcell">
-                      <div className="guest-label">1 guest</div>
-                    </div>
-                    <div id="down-arrow"></div>
-                  </div>
-                </div>
-              </button>
-              <div id="modal2">
-                {this.state.showGuestModal && <GuestModal />}
-              </div>
-            </div>
-          </div>
-          <div id="book-top-spacing"></div>
+          <GuestButton />
           <Button
             name='Book'
             handleClick={this.handleBooking}
