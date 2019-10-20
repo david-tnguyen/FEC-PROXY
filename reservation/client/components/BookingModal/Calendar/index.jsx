@@ -1,11 +1,17 @@
 import React from 'react';
 import moment from 'moment';
-import classNames from 'classnames';
+import getPreviousMonth from '../../../utils/getPreviousMonth';
+import getCurrentMonth from '../../../utils/getCurrentMonth';
+import getNextMonth from '../../../utils/getNextMonth';
+import getCurrentYear from '../../../utils/getCurrentYear';
+import getBlankDays from './getBlankDays';
+import getDays from './getDays';
+import getWeeks from './getWeeks';
+import Weeks from './Weeks';
 
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isMounted: false,
       now: moment(),
@@ -63,14 +69,6 @@ class Calendar extends React.Component {
     }
   }
 
-  firstDayOfMOnth() {
-    return moment(this.state.now).startOf('month').format('d');
-  }
-
-  daysInMonth() {
-    return this.state.now.daysInMonth();
-  }
-
   weekdaysMin() {
     return (
       moment.weekdaysMin().map((day, index) => (
@@ -79,92 +77,36 @@ class Calendar extends React.Component {
     );
   }
 
-  currentMonth() {
-    return this.state.now.format('MMM');
-  }
-
-  currentYear() {
-    return this.state.now.format('YYYY');
-  }
-
   handleNext = (e) => {
     e.preventDefault();
     this.setState({
-      now: this.state.now.add(1, 'month')
+      now: getNextMonth(this.state.now)
     });
   }
 
   handlePrev = (e) => {
     e.preventDefault();
     this.setState({
-      now: this.state.now.subtract(1, 'month')
+      now: getPreviousMonth(this.state.now)
     });
   }
 
+  generateWeeks = () => {
+    const blankDays = getBlankDays(this.state.now);
+    const daysInMonth = getDays(
+      this.state.now,
+      this.state.blockedDates,
+      this.state.startDate,
+      this.state.endDate,
+      this.state.today,
+      this.state.checkoutDate,
+      this.onDaySelect,
+      this.onDateRangeSelect
+    );
+    return getWeeks([...blankDays, ...daysInMonth]);
+  }
+
   render() {
-    const blankDays = [];
-    for (let i = 0; i < this.firstDayOfMOnth(); i++) {
-      blankDays.push(<td key={i}></td>);
-    }
-
-    const daysInMonth = [];
-    for (let i = 1; i <= this.daysInMonth(); i++) {
-      const dateSelected = moment([this.state.now.year(), this.state.now.month(), i])
-      let isBlocked = false;
-      let isOutsideRange = false;
-
-      for (let i = 0; i < this.state.blockedDates.length; i++) {
-        if (dateSelected >= moment(this.state.blockedDates[i]['checkin']) && dateSelected <= moment(this.state.blockedDates[i]['checkout'])) {
-          isBlocked = true;
-        }
-
-        if (dateSelected >= moment(this.state.blockedDates[i]['checkin']) && moment(this.state.blockedDates[i]['checkout']) >= this.state.startDate) {
-          isOutsideRange = true;
-        }
-      }
-
-      if (dateSelected < this.state.today) {
-        isBlocked = true;
-      }
-
-      const dayClass = classNames({
-        'calendar-day': true,
-        'blocked-day': isBlocked,
-        'active-day': !isBlocked && !this.state.startDate || dateSelected < this.state.startDate && dateSelected !== this.state.endDate,
-        'start-date-select': !isBlocked && dateSelected.isSame(this.state.startDate),
-        'date-range-span': !isBlocked && !isOutsideRange && this.state.startDate && dateSelected > this.state.startDate && dateSelected <= this.state.endDate,
-        'date-range-span-selected': !isBlocked && !isOutsideRange && dateSelected > this.state.startDate && dateSelected <= this.state.checkoutDate,
-      });
-
-      daysInMonth.push(
-        <td
-          key={parseInt(i) + parseInt(this.firstDayOfMOnth())}
-          onMouseDown={ () => this.onDaySelect(i, isBlocked, isOutsideRange) }
-          onMouseEnter={ () => this.onDateRangeSelect(i, dateSelected) }
-          className={dayClass}
-        >
-          {i}
-        </td>
-      );
-    }
-
-    const totalDays = [...blankDays, ...daysInMonth];
-    let weeks = [];
-    let week = [];
-
-    totalDays.forEach((day, index) => {
-      if (index % 7 === 0) {
-        weeks.push(week);
-        week = [];
-      }
-
-      week.push(day);
-
-      if (index === totalDays.length - 1) {
-        weeks.push(week);
-      }
-    });
-
     if (this.state.isMounted) {
       return (
         <div id="calendar-modal" ref={node => { this.node = node; }}>
@@ -176,7 +118,7 @@ class Calendar extends React.Component {
               >
                 <svg id="previous-month-arrow"></svg>
               </button>
-              <div id='current-period'><strong>{this.currentMonth()} {this.currentYear()}</strong></div>
+              <div id='current-period'><strong>{getCurrentMonth(this.state.now)} {getCurrentYear(this.state.now)}</strong></div>
               <button
                 className='next-month-container'
                 onClick={this.handleNext}
@@ -184,18 +126,7 @@ class Calendar extends React.Component {
                 <svg id="next-month-arrow"></svg>
               </button>
             </div>
-            <table id='calendar'>
-              <thead>
-                <tr id='weekdays-header'>
-                  {this.weekdaysMin()}
-                </tr>
-              </thead>
-              <tbody>
-                {weeks.map((week, index) => (
-                  <tr key={index}>{week}</tr>
-                ))}
-              </tbody>
-            </table>
+            <Weeks generateWeeks={this.generateWeeks}/>
           </div>
         </div>
       );
