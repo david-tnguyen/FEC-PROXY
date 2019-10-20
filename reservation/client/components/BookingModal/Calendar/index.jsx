@@ -1,14 +1,13 @@
 import React from 'react';
 import moment from 'moment';
 import getPreviousMonth from '../../../utils/getPreviousMonth';
-import getCurrentMonth from '../../../utils/getCurrentMonth';
 import getNextMonth from '../../../utils/getNextMonth';
-import getCurrentYear from '../../../utils/getCurrentYear';
 import getBlankDays from './getBlankDays';
 import getDays from './getDays';
 import getWeeks from './getWeeks';
 import Weeks from './Weeks';
 import ChangeMonth from './ChangeMonth';
+import MonthHeader from './MonthHeader';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -110,7 +109,7 @@ class Calendar extends React.Component {
                 handleMonthChange={this.handlePrev}
                 icon="previous-month-arrow"
               />
-              <div id='current-period'><strong>{getCurrentMonth(this.state.now)} {getCurrentYear(this.state.now)}</strong></div>
+              <MonthHeader now={this.state.now}/>
               <ChangeMonth
                 class="next-month-container"
                 handleMonthChange={this.handleNext}
