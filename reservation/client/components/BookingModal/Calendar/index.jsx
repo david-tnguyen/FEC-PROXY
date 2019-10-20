@@ -8,6 +8,7 @@ import getBlankDays from './getBlankDays';
 import getDays from './getDays';
 import getWeeks from './getWeeks';
 import Weeks from './Weeks';
+import ChangeMonth from './ChangeMonth';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -69,14 +70,6 @@ class Calendar extends React.Component {
     }
   }
 
-  weekdaysMin() {
-    return (
-      moment.weekdaysMin().map((day, index) => (
-        <th key={index} className='weekdays-short'>{day}</th>
-      ))
-    );
-  }
-
   handleNext = (e) => {
     e.preventDefault();
     this.setState({
@@ -111,20 +104,18 @@ class Calendar extends React.Component {
       return (
         <div id="calendar-modal" ref={node => { this.node = node; }}>
           <div id="calendar-modal-padding">
-            <div id='calendar-container'>
-              <button
-                className='previous-month-container'
-                onClick={this.handlePrev}
-              >
-                <svg id="previous-month-arrow"></svg>
-              </button>
+            <div id="calendar-container">
+              <ChangeMonth
+                class="previous-month-container"
+                handleMonthChange={this.handlePrev}
+                icon="previous-month-arrow"
+              />
               <div id='current-period'><strong>{getCurrentMonth(this.state.now)} {getCurrentYear(this.state.now)}</strong></div>
-              <button
-                className='next-month-container'
-                onClick={this.handleNext}
-              >
-                <svg id="next-month-arrow"></svg>
-              </button>
+              <ChangeMonth
+                class="next-month-container"
+                handleMonthChange={this.handleNext}
+                icon="next-month-arrow"
+              />
             </div>
             <Weeks generateWeeks={this.generateWeeks}/>
           </div>
