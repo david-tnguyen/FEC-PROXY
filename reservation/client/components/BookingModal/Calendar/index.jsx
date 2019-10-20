@@ -50,7 +50,7 @@ class Calendar extends React.Component {
   onDaySelect = (day, isBlocked, isOutsideRange) => {
     const dateSelected = moment([this.state.now.year(), this.state.now.month(), day])
 
-    if (!isBlocked && this.props.type === 'check-in') {
+    if (!isBlocked && this.props.type === 'startDate') {
       this.props.onDaySelect(dateSelected);
       this.setState({
         startDate: dateSelected

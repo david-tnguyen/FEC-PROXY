@@ -1,6 +1,7 @@
 import React from 'react';
 import DatePickerInput from '../DatePickerInput';
 import Calendar from '../Calendar';
+import styles from './datePickerRange.scss';
 
 class DatePickerRange extends React.Component {
   constructor(props) {
@@ -16,25 +17,25 @@ class DatePickerRange extends React.Component {
   onStartDateInputSelect = () => {
     this.setState({
       showCalendarModal: true,
-      inputActive: 'check-in'
+      inputActive: 'startDate'
     }, () => setTimeout(() => document.getElementById("calendar-modal").focus(), 0));
   }
 
   onEndDateInputSelect = () => {
     this.setState({
       showCalendarModal: true,
-      inputActive: 'check-out'
+      inputActive: 'endDate'
     });
   }
 
-  onCheckInDaySelect = (startDateSelected) => {
+  onStartDateSelect = (startDateSelected) => {
     this.setState({
       startDate: startDateSelected,
-      inputActive: 'check-out'
+      inputActive: 'endDate'
     });
   }
 
-  onCheckOutDaySelect = (endDateSelected) => {
+  onEndDateSelect = (endDateSelected) => {
     this.setState({
       showCalendarModal: false,
       endDate: endDateSelected
@@ -49,30 +50,31 @@ class DatePickerRange extends React.Component {
   }
 
   render() {
+    console.log(this.state.inputActive)
     return (
-      <div id="checkout-container">
+      <div className={styles.wrapper}>
         <DatePickerInput
           date={this.state.startDate && this.state.startDate.format('L')}
           inputActive={this.state.inputActive}
           handleInputSelect={this.onStartDateInputSelect}
           placeholder='Check-in'
-          name='check-in'
+          name='startDate'
         />
-        <div className="next-step-checkout">
-          <svg id="next-step-checkout-arrow"></svg>
-        </div>
+
+        <svg className={styles.nextArrow} />
+
         <DatePickerInput
           date={this.state.endDate && this.state.endDate.format('L')}
           inputActive={this.state.inputActive}
           handleInputSelect={this.onEndDateInputSelect}
           placeholder='Checkout'
-          name='check-out'
+          name='endDate'
         />
         {this.state.showCalendarModal &&
         <Calendar
           type={this.state.inputActive}
           endDate={this.state.endDate}
-          onDaySelect={this.state.inputActive === 'check-in' ? this.onCheckInDaySelect : this.onCheckOutDaySelect}
+          onDaySelect={this.state.inputActive === 'startDate' ? this.onStartDateSelect : this.onEndDateSelect}
           startDate={this.state.startDate}
           onBlur={this.onCalendarBlur}
         />}
