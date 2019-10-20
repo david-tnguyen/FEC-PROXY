@@ -102,22 +102,20 @@ class Calendar extends React.Component {
     if (this.state.isMounted) {
       return (
         <div id="calendar-modal" ref={node => { this.node = node; }}>
-          <div id="calendar-modal-padding">
-            <div id="calendar-container">
-              <ChangeMonth
-                class="previous-month-container"
-                handleMonthChange={this.handlePrev}
-                icon="previous-month-arrow"
-              />
-              <MonthHeader now={this.state.now}/>
-              <ChangeMonth
-                class="next-month-container"
-                handleMonthChange={this.handleNext}
-                icon="next-month-arrow"
-              />
-            </div>
-            <Weeks generateWeeks={this.generateWeeks}/>
+          <div id="calendar-container">
+            <ChangeMonth
+              class="previous-month-container"
+              handleMonthChange={this.handlePrev}
+              icon="previous-month-arrow"
+            />
+            <MonthHeader now={this.state.now}/>
+            <ChangeMonth
+              class="next-month-container"
+              handleMonthChange={this.handleNext}
+              icon="next-month-arrow"
+            />
           </div>
+          <Weeks generateWeeks={this.generateWeeks}/>
         </div>
       );
     } else {
