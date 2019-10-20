@@ -1,0 +1,25 @@
+#dateInput {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 24px;
+  width: 100%;
+  vertical-align: middle;
+  margin: 0px;
+  padding: 8px;
+  background: rgb(255, 255, 255);
+  border: 0px;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(72, 72, 72);
+}
+
+.dateInputSelected::placeholder {
+  color: white;
+  background: rgb(145, 70, 105);
+  border-color: rgb(145, 70, 105);
+  border-radius: 3px;
+  text-indent: 5px;
+}
+
+#dateInput:focus {
+  outline: none;
+}

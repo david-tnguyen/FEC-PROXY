@@ -50,7 +50,6 @@ class DatePickerRange extends React.Component {
   }
 
   render() {
-    console.log(this.state.inputActive)
     return (
       <div className={styles.wrapper}>
         <DatePickerInput

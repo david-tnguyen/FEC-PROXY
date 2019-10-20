@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './datePickerInput.scss';
 
 class DatePickerInput extends React.Component {
   constructor(props) {
@@ -10,10 +11,10 @@ class DatePickerInput extends React.Component {
       <input
         type="text"
         placeholder={this.props.placeholder}
-        id="checkin-label"
+        id={styles.dateInput}
         autoComplete="off"
         value={this.props.date}
-        className={this.props.inputActive === this.props.name ? 'checkin-label-select' : ''}
+        className={this.props.inputActive === this.props.name ? styles.dateInputSelected : ''}
         onClick={this.props.handleInputSelect}
       />
     );
