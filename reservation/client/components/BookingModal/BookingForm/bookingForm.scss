@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+
+.label {
+  overflow-wrap: break-word;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33em;
+  color: color(light-grey);
+}
+
+.chargeWarning {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  word-wrap: break-word;
+  font-weight: 500;
+  line-height: 1.33em;
+  color: color(light-grey);
+}

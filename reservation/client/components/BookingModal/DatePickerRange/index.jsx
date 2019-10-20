@@ -29,6 +29,7 @@ class DatePickerRange extends React.Component {
   }
 
   onStartDateSelect = (startDateSelected) => {
+    this.props.handleStartDateSelect(startDateSelected)
     this.setState({
       startDate: startDateSelected,
       inputActive: 'endDate'
@@ -36,6 +37,7 @@ class DatePickerRange extends React.Component {
   }
 
   onEndDateSelect = (endDateSelected) => {
+    this.props.handleEndDateSelect(endDateSelected)
     this.setState({
       showCalendarModal: false,
       endDate: endDateSelected

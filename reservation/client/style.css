@@ -141,13 +141,12 @@
   z-index: 1;
   background-color: rgb(255, 255, 255);
   position: absolute;
-  left: 24px;
-  width: 332px;
-  margin-top: 10px; /* temp */
+  top: 36px;
+  margin: 10px -1.2px 0px;
   box-shadow: rgba(211, 158, 158, 0.05) 0px 2px 6px, rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
 }
 
 #calendar-modal-padding {
-  padding: 0px 20px 40px;
+  padding: 0px 20.5px 40px;
 }
 
