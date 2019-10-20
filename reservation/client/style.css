@@ -24,11 +24,6 @@
 }
 
 /* FORM */
-#modal-book-spacing {
-  margin-top: 16px;
-  margin-bottom: 10px;
-}
-
 #book-dates {
   overflow-wrap: break-word;
   font-size: 12px;
@@ -300,6 +295,7 @@
   border: 1.2px solid rgb(235, 235, 235);
   border-radius: 2px;
   margin-top: 2px;
+  margin-bottom: 10px;
 }
 
 #checkin-row {
@@ -311,20 +307,6 @@
 }
 
 #checkin-label {
-  font-weight: 300;
-  font-size: 17px;
-  line-height: 24px;
-  width: 100%;
-  vertical-align: middle;
-  margin: 0px;
-  padding: 8px;
-  background: rgb(255, 255, 255);
-  border: 0px;
-  color: transparent;
-  text-shadow: 0 0 0 rgb(72, 72, 72);
-}
-
-#checkin-label2 {
   font-weight: 300;
   font-size: 17px;
   line-height: 24px;

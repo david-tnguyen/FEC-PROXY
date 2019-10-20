@@ -3,62 +3,20 @@ import Price from '../ListingPrice';
 import Ratings from '../Ratings';
 import GuestModal from '../GuestModal.jsx';
 import Button from '../PrimaryButton';
-import Calendar from '../Calendar.jsx';
 import CloseButton from './CloseButton';
-import DatePickerInput from '../DatePickerInput';
-import classNames from 'classnames';
+import DatePickerRange from './DatePickerRange';
 
 class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showGuestModal: false,
-      showCalendarModal: false,
-      startDate: '',
-      endDate: '',
-      inputActive: ''
     };
-
   }
 
   onGuestModalBlur = () => {
     this.setState({
       showGuestModal: false
-    });
-  }
-
-  onCheckInDaySelect = (startDateSelected) => {
-    this.setState({
-      startDate: startDateSelected,
-      inputActive: 'check-out'
-    });
-  }
-
-  onCheckOutDaySelect = (endDateSelected) => {
-    this.setState({
-      showCalendarModal: false,
-      endDate: endDateSelected
-    });
-  }
-
-  onStartDateInputSelect = () => {
-    this.setState({
-      showCalendarModal: true,
-      inputActive: 'check-in'
-    }, () => setTimeout(() => document.getElementById("calendar-modal").focus(), 0));
-  }
-
-  onEndDateInputSelect = () => {
-    this.setState({
-      showCalendarModal: true,
-      inputActive: 'check-out'
-    });
-  }
-
-  onCalendarBlur = () => {
-    this.setState({
-      inputActive: '',
-      showCalendarModal: false
     });
   }
 
@@ -104,37 +62,8 @@ class Modal extends React.Component {
         <Ratings />
         <div id="modal-divider" />
         <form>
-          <div id="modal-book-spacing">
-            <label id="book-dates">Dates</label>
-            <div id="checkout-container">
-              <DatePickerInput
-                startDate={this.state.startDate && this.state.startDate.format('L')}
-                inputActive={this.state.inputActive}
-                handleInputSelect={this.onStartDateInputSelect}
-              />
-
-              <div
-                className="next-step-checkout"
-              >
-                <svg id="next-step-checkout-arrow"></svg>
-              </div>
-                <input
-                  type="text"
-                  placeholder="Checkout"
-                  autoComplete="off"
-                  id="checkin-label"
-                  value={this.state.endDate && this.state.endDate.format('L')}
-                  onChange={(e) => console.log(e)}
-                  className={
-                    classNames({
-                      'checkin-label-select': this.state.inputActive === 'check-out'
-                    })
-                  }
-                  onClick={this.onEndDateInputSelect}
-                />
-                {this.state.showCalendarModal && <Calendar type={this.state.inputActive} endDate={this.state.endDate} onDaySelect={this.state.inputActive === 'check-in' ? this.onCheckInDaySelect : this.onCheckOutDaySelect} startDate={this.state.startDate} onBlur={this.onCalendarBlur}/>}
-              </div>
-            </div>
+          <label id="book-dates">Dates</label>
+          <DatePickerRange />
           <div id="guest-spacing">
             <label id="guests">Guests</label>
             <div>
