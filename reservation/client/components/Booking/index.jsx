@@ -15,7 +15,7 @@ class Booking extends React.Component {
     return (
       <div className={styles.wrapper}>
         <Button
-          name="Book"
+          name="Check Availability"
           handleClick={this.handleBooking}
         />
       </div>

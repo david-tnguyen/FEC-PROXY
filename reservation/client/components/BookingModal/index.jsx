@@ -1,10 +1,11 @@
 import React from 'react';
 import Price from '../ListingPrice';
 import Ratings from '../Ratings';
-import Button from '../PrimaryButton';
+import BookButton from '../PrimaryButton';
 import CloseButton from './CloseButton';
 import DatePickerRange from './DatePickerRange';
 import GuestButton from './GuestButton';
+import styles from './bookingModal.scss';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -40,20 +41,20 @@ class Modal extends React.Component {
 
   render() {
     return (
-      <div id="modal-backdrop">
+      <div className={styles.modal}>
         <CloseButton handleClose={this.handleClose}/>
         <Price />
         <Ratings />
-        <div id="modal-divider" />
+        <div className={styles.divider}/>
         <form>
-          <label id="book-dates">Dates</label>
+          <label className={styles.label}>Dates</label>
           <DatePickerRange />
           <GuestButton />
-          <Button
+          <BookButton
             name='Book'
             handleClick={this.handleBooking}
           />
-          <div id="charge">You won't be charged yet</div>
+          <div className={styles.chargeWarning}>You won't be charged yet</div>
         </form>
       </div>
     );
