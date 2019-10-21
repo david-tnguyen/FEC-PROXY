@@ -1,10 +1,11 @@
 import React from 'react';
 import moment from 'moment';
+import styles from './weekdaysHeader.scss';
 
-const WeekDays = () => (
+const Weekdays = () => (
   moment.weekdaysMin().map((day, index) => (
-    <th key={index} className='weekdays-short'>{day}</th>
+    <th key={index} className={styles.weekdaysShort}>{day}</th>
   ))
 );
 
-export default WeekDays;
+export default Weekdays;

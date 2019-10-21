@@ -1,12 +1,12 @@
 import React from 'react';
-import WeekDays from '../WeekDaysHeader';
+import Weekdays from '../WeekdaysHeader';
 import styles from './weeks.scss';
 
 const Weeks = (props) => (
   <table className={styles.wrapper}>
     <thead>
       <tr>
-        <WeekDays />
+        <Weekdays />
       </tr>
     </thead>
     <tbody>
