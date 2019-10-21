@@ -1,6 +1,9 @@
 $colors: (
   primary: rgb(145, 70, 105),
-  light-grey: rgb(72, 72, 72)
+  light-primary: rgb(119, 49, 82),
+  light-grey: rgb(72, 72, 72),
+  neutral-grey: rgb(228, 231, 231),
+  dark-white: rgb(216, 216, 216)
 );
 
 @function color($color) {

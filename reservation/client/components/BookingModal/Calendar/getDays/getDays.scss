@@ -1,0 +1,50 @@
+@import '../../../../styles/variables.scss';
+
+@mixin date-range($color) {
+  border: 1px solid color(neutral-grey);
+  background-color: $color;
+  color: white;
+}
+
+@mixin day($color) {
+  border: 1px solid color(neutral-grey);
+  color: $color;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  width: 41px;
+  height: 40px;
+}
+
+@mixin day-hover($color) {
+  cursor: pointer;
+  background-color: $color;
+}
+
+.calendar-day {
+  @include day(color(light-grey));
+
+  &.blocked-day {
+    @include day(color(dark-white));
+  }
+
+  &.blocked-day:hover {
+    cursor: default;
+  }
+
+  &.active-day:hover {
+    @include day-hover(color(neutral-grey));
+  }
+
+  &.start-date-select:hover {
+    @include day-hover(color(light-primary));
+  }
+
+  &.start-date-select {
+    @include date-range(color(light-primary))
+  }
+
+  &.date-range-span, &.date-range-span-selected {
+    @include date-range(color(primary))
+  }
+}

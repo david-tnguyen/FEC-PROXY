@@ -4,30 +4,6 @@
   box-sizing: border-box;
 }
 
-.calendar-day {
-  border: 1px solid rgb(228, 231, 231);
-  color: #484848;
-  font-size: 14px;
-  font-weight: 700;
-  text-align: center;
-  width: 41px;
-  height: 40px;
-}
-
-.blocked-day {
-  border: 1px solid rgb(228, 231, 231);
-  color: rgb(216, 216, 216);
-  font-size: 14px;
-  font-weight: 700;
-  text-align: center;
-  width: 41px;
-  height: 40px;
-}
-
-.blocked-day:hover {
-  cursor: default;
-}
-
 #calendar {
   border-collapse: collapse;
 }
@@ -101,29 +77,6 @@
 .active-day:hover {
   cursor: pointer;
   background-color: rgb(228, 231, 231);
-}
-
-.start-date-select {
-  border: 1px solid rgb(228, 231, 231);
-  background-color: rgb(119, 49, 82);
-  color: rgb(255, 255, 255);
-}
-
-.start-date-select:hover {
-  cursor: pointer;
-  background-color: rgb(119, 49, 82);
-}
-
-.date-range-span {
-  border: 1px solid rgb(228, 231, 231);
-  background-color: rgb(145, 70, 105);
-  color: rgb(255, 255, 255);
-}
-
-.date-range-span-selected {
-  border: 1px solid rgb(228, 231, 231);
-  background-color: rgb(145, 70, 105);
-  color: rgb(255, 255, 255);
 }
 
 .calendar-day::selection {
