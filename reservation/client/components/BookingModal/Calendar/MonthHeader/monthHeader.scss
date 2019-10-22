@@ -1,6 +1,8 @@
+@import '../../../../styles/variables.scss';
+
 .monthHeader {
   text-align: center;
-  color: #484848;
+  color: color(light-grey);
   font-size: 18px;
   flex: 1;
 }
