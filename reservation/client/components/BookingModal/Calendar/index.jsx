@@ -8,6 +8,7 @@ import getWeeks from './getWeeks';
 import Weeks from './Weeks';
 import ChangeMonth from './ChangeMonth';
 import MonthHeader from './MonthHeader';
+import styles from './calendar.scss';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -101,18 +102,18 @@ class Calendar extends React.Component {
   render() {
     if (this.state.isMounted) {
       return (
-        <div id="calendar-modal" ref={node => { this.node = node; }}>
-          <div id="calendar-container">
+        <div className={styles.wrapper} ref={node => { this.node = node; }}>
+          <div className={styles.header}>
             <ChangeMonth
-              class="previous-month-container"
+              class={styles.arrowWrapper}
               handleMonthChange={this.handlePrev}
-              icon="previous-month-arrow"
+              icon={styles.previousArrow}
             />
             <MonthHeader now={this.state.now}/>
             <ChangeMonth
-              class="next-month-container"
+              class={styles.arrowWrapper}
               handleMonthChange={this.handleNext}
-              icon="next-month-arrow"
+              icon={styles.nextArrow}
             />
           </div>
           <Weeks generateWeeks={this.generateWeeks}/>
@@ -120,7 +121,7 @@ class Calendar extends React.Component {
       );
     } else {
       return (
-        <div id="calendar-modal" ref={node => { this.node = node; }}></div>
+        <div className={styles.wrapper} ref={node => { this.node = node; }}></div>
       );
     }
   }

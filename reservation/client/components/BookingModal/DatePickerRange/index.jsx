@@ -18,7 +18,7 @@ class DatePickerRange extends React.Component {
     this.setState({
       showCalendarModal: true,
       inputActive: 'startDate'
-    }, () => setTimeout(() => document.getElementById("calendar-modal").focus(), 0));
+    });
   }
 
   onEndDateInputSelect = () => {

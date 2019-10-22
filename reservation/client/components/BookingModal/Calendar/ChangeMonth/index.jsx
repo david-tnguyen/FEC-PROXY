@@ -5,7 +5,7 @@ const ChangeMonth = (props) => (
     className={props.class}
     onClick={props.handleMonthChange}
   >
-    <svg id={props.icon}></svg>
+    <svg className={props.icon}></svg>
   </button>
 );
 
