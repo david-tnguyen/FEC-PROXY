@@ -14,27 +14,22 @@ class BookingForm extends React.Component {
   }
 
   handleBooking = () => {
-    if (!this.state.startDate) {
-      document.getElementById('startDate').focus();
-    } else if (!this.state.endDate) {
-      document.getElementById('endDate').focus();
-    } else {
-      fetch('http://localhost:3002/checkout', {
-      // fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/', {
-        method: 'POST',
-        body: JSON.stringify({
-          checkin: this.state.startDate,
-          checkout: this.state.endDate
-        }),
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-      .then(() => {
-        this.props.showModal(false);
-      });
-    }
+    fetch('http://localhost:3002/checkout', {
+    // fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/', {
+      method: 'POST',
+      body: JSON.stringify({
+        checkin: this.state.startDate,
+        checkout: this.state.endDate
+      }),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(() => {
+      this.props.showModal(false);
+    });
   }
+
 
   onStartDateSelect = (startDateSelected) => {
     this.setState({
