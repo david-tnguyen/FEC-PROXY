@@ -26,6 +26,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
+    "react-redux": "^7.1.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
@@ -44,6 +45,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
+    "redux": "^4.0.4",
     "sass-loader": "^8.0.0"
   },
   "jest": {
