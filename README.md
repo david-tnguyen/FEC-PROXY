@@ -2,36 +2,27 @@
 
 ![](Airbnb-Checkout.gif)
 
-## Related Projects
-
-  -
-
+A project to clone the Airbnb plus product page. The reservation microservice is a custom date picker that allows users to view and book available dates for a home.
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+1. [Installation](#Installation)
 
 ## Usage
 
-> Some usage instructions
+* Navigate through the photo carousel to view photos of the home.
+* Click on check availability to view blocked dates or to book a range of dates to reserve the home.
 
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
+## Installation
+For each subdirectory of FEC-PROXY:
 
 ```sh
-npm install -g webpack
 npm install
 ```
 
+For allen-service:
+
+```sh
+npm run server-dev
+```
