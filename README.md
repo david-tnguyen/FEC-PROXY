@@ -21,8 +21,27 @@ For each subdirectory of FEC-PROXY:
 npm install
 ```
 
-For allen-service:
+For allen-service subdirectory:
 
 ```sh
 npm run server-dev
+```
+
+For reservation subdirectory:
+
+```sh
+brew services start mysql
+npm start
+```
+
+For sonny-service subdirectory:
+
+```sh
+npm start
+```
+
+For proxy subdirectory:
+
+```sh
+npm start
 ```
