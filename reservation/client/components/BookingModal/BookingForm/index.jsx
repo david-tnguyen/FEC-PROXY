@@ -14,20 +14,21 @@ class BookingForm extends React.Component {
   }
 
   handleBooking = () => {
-    fetch('http://localhost:3002/checkout', {
-    // fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/', {
-      method: 'POST',
-      body: JSON.stringify({
-        checkin: this.state.startDate,
-        checkout: this.state.endDate
-      }),
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-    .then(() => {
-      this.props.showModal(false);
-    });
+    // fetch('http://localhost:3002/checkout', {
+    // // fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     checkin: this.state.startDate,
+    //     checkout: this.state.endDate
+    //   }),
+    //   headers: {
+    //     'Content-type': 'application/json'
+    //   }
+    // })
+    // .then(() => {
+    //   this.props.showModal(false);
+    // });
+    this.props.showModal(false);
   }
 
 
