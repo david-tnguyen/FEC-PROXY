@@ -16,12 +16,14 @@ class Modal extends React.Component {
 
   render() {
     return (
-      <div className={styles.modal}>
-        <CloseButton handleClose={this.handleClose}/>
-        <Price />
-        <Ratings />
-        <div className={styles.divider}/>
-        <BookingForm showModal={this.props.showModal}/>
+      <div className={styles.modalContainer}>
+        <div className={styles.modal}>
+          <CloseButton handleClose={this.handleClose}/>
+          <Price />
+          <Ratings />
+          <div className={styles.divider}/>
+          <BookingForm showModal={this.props.showModal}/>
+        </div>
       </div>
     );
   }
