@@ -14,7 +14,7 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMounted: false,
+      isMounted: true,
       now: moment(),
       today: moment(),
       startDate: this.props.startDate,
@@ -26,15 +26,15 @@ class Calendar extends React.Component {
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClick, false);
-    fetch('http://localhost:3002/checkout')
-    // fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/checkout')
-    .then(res => res.json())
-    .then((json) => {
-      this.setState({
-        blockedDates: json,
-        isMounted: true
-      });
-    });
+    // fetch('http://localhost:3002/checkout')
+    // // fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/checkout')
+    // .then(res => res.json())
+    // .then((json) => {
+    //   this.setState({
+    //     blockedDates: json,
+    //     isMounted: true
+    //   });
+    // });
   }
 
   componentWillUnmount() {
